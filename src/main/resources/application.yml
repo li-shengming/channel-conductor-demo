@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: channel-conductor-demo
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.143.131.12:19002/eureka/,http://10.143.131.134:19002/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+ribbon:
+  #Ribbon缓存更新周期默认30s,改为3s
+  ServerListRefreshInterval: 3
+  # 请求处理的超时时间
+  ReadTimeout: 20000
+  # 请求连接的超时时间
+  ConnectTimeout: 3000
+  #同一台实例最大重试次数,不包括首次调用
+  MaxAutoRetries: 1
+  #重试负载均衡其他的实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 2
+  # 对所有操作请求都进行重试
+  OkToRetryOnAllOperations: true
+  retryableStatusCodes: 404,408,502,500

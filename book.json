@@ -1,0 +1,12 @@
+{
+  "language" : "zh-hans",
+  "plugins": ["expandable-chapters","github","-sharing"],
+  "pluginsConfig": {
+    "theme-default":{
+      "showLevel":true
+    },
+    "github": {
+      "url": "http://gitlab.creditease.corp/loanplatformchannel/channel-conductor-demo"
+    }
+  }
+}
